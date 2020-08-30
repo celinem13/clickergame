@@ -38,7 +38,8 @@ var unlocks = {
 // Increases student_souls by the number (of times the button is pressed?) by the number of class_spots stored under resources
 function getStudentSouls(num)
 {
-    resources["student_souls"] += Math.round(num*resources["class_spots"])
+    resources["student_souls"] += num*resources["class_spots"]
+
     updateText()
 };
 
@@ -49,7 +50,7 @@ function increaseProfessorSections(num)
     if (resources["student_souls"] >= costs["professor_sections"]*num)
     {
         resources["professor_sections"] += num
-        resources["student_souls"] -= Math.round(num*costs["professor_sections"])
+        resources["student_souls"] -= num*costs["professor_sections"]
 	
         costs["professor_sections"] *= growthRate["professor_sections"]
 	
@@ -94,7 +95,7 @@ function hireProfessor(num)
 
         /// All times the button is clicked:
         resources["professor"] += num
-        resources["student_souls"] -= Math.parseInt(num*costs["professor"])
+        resources["student_souls"] -= num*costs["professor"]
 	
         costs["professor"] *= growthRate["professor"]
 	
@@ -127,7 +128,7 @@ function updateText()
     {
         for (var element of document.getElementsByClassName(key))
         {
-            element.innerHTML = resources[key].toFixed(2)
+            element.innerHTML = Math.round(resources[key].toFixed(2))
         }
     }
 
