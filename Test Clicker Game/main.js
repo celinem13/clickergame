@@ -94,7 +94,7 @@ function hireProfessor(num)
 
         /// All times the button is clicked:
         resources["professor"] += num
-        resources["student_souls"] -= Math.round(num*costs["professor"])
+        resources["student_souls"] -= Math.parseInt(num*costs["professor"])
 	
         costs["professor"] *= growthRate["professor"]
 	
