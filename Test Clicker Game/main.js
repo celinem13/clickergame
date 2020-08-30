@@ -16,9 +16,9 @@ var costs = {
         }
 // What rate the cost change (per purchase?)
 var growthRate = {
-         "class_spots":1,
+         "class_spots":2,
          "professor":2,
-         "professor_sections":2
+         "professor_sections":3
           }
 
 // Holds the value of student_souls produced based on how many professors and class_spots there are (per tick?)
@@ -64,7 +64,7 @@ function increaseClassSpots(num)
     if (resources["student_souls"] >= costs["class_spots"]*num)
     {
         resources["class_spots"] += num
-        resources["student_souls"] -= Math.round(num*costs["class_spots"])
+        resources["student_souls"] -= num*costs["class_spots"]
 	
         costs["class_spots"] *= growthRate["class_spots"]
 	
