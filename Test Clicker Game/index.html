@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="interface.css" />
+  </head>
+  <body>
+    <script type="text/javascript" src="main.js"></script>
+    <div class="row">
+      <div class="column">
+        Student Souls: <span class="student_souls"></span>
+        <span style="display:none" class="show_class_spots">Class Spots: <span class="class_spots"></span></span>
+        <span style="display:none" class="show_professor">Professors: <span class="professor"></span></span>
+        <span style="display:none" class="show_professor_sections">Professor Sections: <span class="professor_sections"></span></span>
+      </div>
+      <div class="column">
+        <button onClick="getStudentSouls(1)">Acquire Students' Souls</button>
+        <button style="display:none" class="show_class_spots" onClick="increaseClassSpots(1)">Increase Class Spots: $<span class="class_spots_cost"></span></button>
+        <button style="display:none" class="show_professor" onClick="hireProfessor(1)">Hire Professors: $<span class="professor_cost"></span></button>
+        <button style="display:none" class="show_professor" onClick="increaseProfessorSections(1)">Increase Professors' Sections: $<span class="professor_sections_cost"></span></button>
+      </div>
+    </div>
+  </body>
+</html>
