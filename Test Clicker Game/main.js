@@ -16,9 +16,9 @@ var costs = {
         }
 // What rate the cost change (per purchase?)
 var growthRate = {
-         "class_spots":2,
-         "professor":2,
-         "professor_sections":3
+         "class_spots":1.25,
+         "professor":1.50,
+         "professor_sections":1.75
           }
 
 // Holds the value of student_souls produced based on how many professors and class_spots there are (per tick?)
