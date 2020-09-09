@@ -27,6 +27,7 @@ body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: -webkit-flex;
     display: flex;
+    background-image: linear-gradient(rgb(31, 97, 31), rgb(19, 219, 119));
 }
 
 .section1{
