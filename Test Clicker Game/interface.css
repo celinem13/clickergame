@@ -1,5 +1,5 @@
 button {
-    background-color: #FFFFFF; 
+    background-color: #abf07d; 
     border: none;
     color: black;
     padding: 15px 32px;
@@ -10,11 +10,11 @@ button {
 }
 
 button:hover {
-    background-color: #e7e7e7; 
+    background-color: #6dbd7a; 
 }
 
 button:active {
-    background-color: #ececec; 
+    background-color: #098009; 
 }
 
 .column {
