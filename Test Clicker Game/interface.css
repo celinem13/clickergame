@@ -21,3 +21,7 @@ button:active {
   float: left;
   width: 50%;
 }
+
+body{
+    background-image: image(src="images/cppart.jpg");
+}
