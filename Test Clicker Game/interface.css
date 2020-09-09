@@ -6,7 +6,7 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;    
+    font-size: 14px;    
 }
 
 button:hover {
@@ -20,4 +20,32 @@ button:active {
 .column {
   float: left;
   width: 50%;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.section1{
+    -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 20px;
+}
+
+.section2{
+-webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 20px;
+}
+
+.section3{
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
 }
