@@ -1,23 +1,31 @@
 button {
-    background-color: #FFFFFF; 
+    background-color: #abf07d; 
     border: none;
     color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;    
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;    
 }
 
 button:hover {
-    background-color: #e7e7e7; 
+    background-color: #6dbd7a; 
 }
 
 button:active {
-    background-color: #ececec; 
+    background-color: #098009; 
 }
 
 .column {
   float: left;
-  width: 33.3%;
+  width: 50%;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: -webkit-flex;
+    display: flex;
+    background-image: linear-gradient(rgb(31, 97, 31), rgb(19, 219, 119));
 }
