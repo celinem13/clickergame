@@ -7,6 +7,7 @@ button {
     background-color: #ffc933; 
     border-style: outset;
     border-color: #0f6e1c;
+    border-width: 8px;
     color: #0f6e1c;
     padding: 15px 32px;
     text-align: center;
