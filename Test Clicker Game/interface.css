@@ -1,12 +1,13 @@
 body {
     color: white;
-    font: bold 36px "Lucida Sans Unicode", sans-serif; 
+    font: bold 24px "Lucida Sans Unicode", sans-serif; 
 }
 
 button {
-    background-color: #FFFFFF; 
-    border: none;
-    color: black;
+    background-color: #ffc933; 
+    border-style: outset;
+    border-color: #0f6e1c;
+    color: #0f6e1c;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -15,11 +16,11 @@ button {
 }
 
 button:hover {
-    background-color: #e7e7e7; 
+    background-color: #ffbc00; 
 }
 
 button:active {
-    background-color: #ececec; 
+    background-color: #d1ad49; 
 }
 
 .column {
