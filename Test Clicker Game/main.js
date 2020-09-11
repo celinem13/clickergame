@@ -5,7 +5,7 @@ var visualRate = 256
 
 // Base resources given to player at start of the game
 var resources = {
-        "student_souls":0,
+        "student_souls": 0,
         "class_spots": 1,
         "professor": 0,
         "professor_sections": 0,
@@ -56,6 +56,7 @@ var unlocks = {
         "happiness": {"CAPS": 1},
         "building": {"student_souls": 5000}
         }
+
 
 // Funcion called when "Acquire Students' Souls" button is pressed
 // Increases student_souls by the number of class_spots stored in resources
@@ -230,7 +231,7 @@ function updateText()
 
 window.setInterval(function(){
     timer += tickRate
-    if (resources["professor"] > 0) {
+    if (resources["professor"] > 0 && resources["student_souls"] > 0)  {
         // Creates auto souls
         for (var increment of increments)
         {
@@ -238,7 +239,7 @@ window.setInterval(function(){
 
             // Punishment for low student happiness, under 30% and starts to take away souls, how much is proportional to how low
             if (mood["happiness"] < 30){
-                    total = (mood["happiness"] - 50)
+                    total = (mood["happiness"] - 500)
             } else {
                 tempbonus = 0
                 //Automatic soul generation, this is incredibly inefficient, but it kept breaking when I tried to not use the for-loop
@@ -281,6 +282,8 @@ window.setInterval(function(){
                 resources[increment["output"]] += total/tickRate
             }
         }
+    } else if (resources["student_souls"] < 0) {
+        resources["student_souls"] = 0
     }
     
     if (timer > visualRate)
