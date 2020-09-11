@@ -39,6 +39,17 @@ var mood = {
     "happiness":99
 }
 
+var soulsPerSecond = {
+    "souls_per_seccond" : 0
+}
+
+// What bonuses these multipliers give per item per professor
+var bonus = {
+        "professor_sections": 0.8,
+        "major": 15,
+        "building": 100
+        }
+
 // Holds the value of student_souls produced based on how many professors and class_spots there are (per tick?)
 var increments = [
     {
@@ -50,11 +61,12 @@ var increments = [
 var unlocks = {
         "class_spots":{"student_souls":5},
         "professor":{"student_souls":30},
+        "souls_per_second":{"professor":1},
         "professor_sections": { "professor": 1 },
         "major": { "professor": 5},
-        "CAPS":{"major": 1.20},
+        "CAPS":{"major": 30},
         "happiness": {"CAPS": 1},
-        "building": {"student_souls": 5000}
+        "building": {"student_souls": 6000}
         }
 
 
@@ -107,7 +119,7 @@ function hireProfessor(num)
 function increaseProfessorSections(num)
 {
     if (resources["student_souls"] >= costs["professor_sections"] * num) {
-        resources["professor_sections"] += num * 0.4
+        resources["professor_sections"] += num * bonus["professor_sections"]
         resources["student_souls"] -= num * costs["professor_sections"]
 
         costs["professor_sections"] *= growthRate["professor_sections"]
@@ -120,7 +132,7 @@ function increaseMajors(num)
 {
 
     if (resources["student_souls"] >= costs["major"] * num) {
-        resources["major"] += num * .6
+        resources["major"] += num * bonus["major"]
         resources["student_souls"] -= num * costs["major"]
 
         costs["major"] *= growthRate["major"]
@@ -138,7 +150,7 @@ function increaseMajors(num)
 function hireCAPS(num)
 {
     // Only allow Caps to be purchased if happiness is <= 100, should help prevent over 100% happiness
-    if (mood["happiness"] <= 100){
+    if (mood["happiness"] < 100){
 
         if (resources["class_spots"] >= costs["CAPS"] * num) {
             resources["CAPS"] += num
@@ -165,7 +177,7 @@ function calculateHappiness ()
 function increaseBuildings(num) {
 
     if (resources["student_souls"] >= costs["building"] * num) {
-        resources["building"] += num * 1.2
+        resources["building"] += num * bonus["building"]
         resources["student_souls"] -= num * costs["building"]
 
         costs["building"] *= growthRate["building"]
@@ -199,13 +211,22 @@ function updateText()
     {
         for (var element of document.getElementsByClassName(key))
         {
-            //Round the soul total, class spots, CAPS, and professor to a whole number
-            if (key === "student_souls" || key === "class_spots" || key === "professor" || key === "CAPS"){
-                element.innerHTML = Math.round(resources[key].toFixed(2))
-            } else {
+            if (bonus[key]){
+                // don't round multipliers
                 element.innerHTML = resources[key].toFixed(2)
+            } else {
+                //Round to a whole number
+                element.innerHTML = Math.round(resources[key].toFixed(2)).toLocaleString('en', {useGrouping:true})
             }
+        }
+    }
 
+    // Print souls per second
+    for (var key in soulsPerSecond)
+    {
+        for (var element of document.getElementsByClassName(key))
+        {
+            element.innerHTML = Math.round(soulsPerSecond[key].toFixed(2)).toLocaleString('en', {useGrouping:true})
         }
     }
 
@@ -214,7 +235,7 @@ function updateText()
     {
         for (var element of document.getElementsByClassName(key+"_cost"))
         {
-            element.innerHTML = Math.round(costs[key].toFixed(2))
+            element.innerHTML = Math.round(costs[key].toFixed(2)).toLocaleString('en', {useGrouping:true})
         }
     }
 
@@ -239,7 +260,7 @@ window.setInterval(function(){
 
             // Punishment for low student happiness, under 30% and starts to take away souls, how much is proportional to how low
             if (mood["happiness"] < 30){
-                    total = (mood["happiness"] - 500)
+                    total = (mood["happiness"] - (500))
             } else {
                 tempbonus = 0
                 //Automatic soul generation, this is incredibly inefficient, but it kept breaking when I tried to not use the for-loop
@@ -275,6 +296,7 @@ window.setInterval(function(){
 
             }
 
+            soulsPerSecond["souls_per_second"] = total
 
             if (total)
             {
