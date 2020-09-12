@@ -19,28 +19,36 @@
         <div class="row">
             <div class="column">
                 Student Souls: <span class="student_souls"></span>
-                <span style="display:none" class="show_class_spots">Class Spots: <span class="class_spots"></span></span>
-                <span style="display:none" class="show_souls_per_second">Souls Per Second: <span class="souls_per_second"></span></span>
-                <span style="display:none" class="show_professor">Professors: <span class="professor"></span></span>
-                <span style="display:none" class="show_professor_sections">Professor Sections: <span class="professor_sections"></span>%</span>
-                <span style="display:none" class="show_major">Majors: <span class="major"></span>%</span>
-                <span style="display:none" class="show_building">Buildings: <span class="building"></span>%</span>
+                <span title="Obtain the souls of students to fill the school" style="display:none" class="show_class_spots">Class Spots: <span class="class_spots"></span></span>
+                <span title="Current admission of student souls" style="display:none" class="show_souls_per_second">Souls Per Second: <span class="souls_per_second"></span></span>
+                <span title= "Hire a bunch of different professors...but which are good?" style="display:none" class="show_professor">Professors: <span class="professor"></span></span>
+                <span title="Give the professors room to breathe" style="display:none" class="show_professor_sections">Professor Sections: <span class="professor_sections"></span>%</span>
+                <span title="There's a major for anything, and students want anything" style="display:none" class="show_major">Majors: <span class="major"></span>%</span>
+                <span title="More room, happier professors, more students" style="display:none" class="show_building">Buildings: <span class="building"></span>%</span>
                 <br>
 
             </div>
 
             <div class="column">
-                <button onClick="getStudentSouls(1)">Acquire Students' Souls</button>
-                <button style="display:none" class="show_class_spots" onClick="increaseClassSpots(1)">Increase Class Spots: <span class="class_spots_cost"></span> Souls</button>
-                <button style="display:none" class="show_professor" onClick="hireProfessor(1)">Hire Professors: <span class="professor_cost"></span> Souls</button>
-                <button style="display:none" class="show_professor" onClick="increaseProfessorSections(1)">Increase Professors' Sections: <span class="professor_sections_cost"></span> Souls</button>
-                <button style="display:none" class="show_major" onClick="increaseMajors(1)">Increase Majors: <span class="major_cost"></span> Souls</button>
-                <button style="display:none" class="show_building" onClick="increaseBuildings(1)">Increase Buildings: <span class="building_cost"></span> Souls</button>
+                <button title="Obtain the souls of students to fill the school" onClick="getStudentSouls(1)">Acquire Students' Souls</button>
+                <button title="Number of souls per click" style="display:none" class="show_class_spots" onClick="increaseClassSpots(1)">Increase Class Spots: <span class="class_spots_cost"></span> Souls</button>
+                <button title="Automatically produce one student per professor" style="display:none" class="show_professor" onClick="hireProfessor(1)">Hire Professors: <span class="professor_cost"></span> Souls</button>
+                <button title="Bonus .8% to professor student generation per section" style="display:none" class="show_professor" onClick="increaseProfessorSections(1)">Increase Professors' Sections: <span class="professor_sections_cost"></span> Souls</button>
+                <button title="Bonus 15% to professor student generation per major" style="display:none" class="show_major" onClick="increaseMajors(1)">Increase Majors: <span class="major_cost"></span> Souls</button>
+                <button title="Bonus 100% to professor student generation per building" style="display:none" class="show_building" onClick="increaseBuildings(1)">Increase Buildings: <span class="building_cost"></span> Souls</button>
             </div>
 
             <div class="column">
-                 <span style="display:none" class="show_CAPS">CAPS Staff: <span class="CAPS"></span></span>
-                 <span style="display:none" class="show_happiness">Student Happiness: <span class="happiness"></span>%</span>
+                 <span title="To keep the souls happy" style="display:none" class="show_CAPS">CAPS Staff: <span class="CAPS"></span></span>
+                 <span title="Happiness :: CAPS/Professor
+
+                 30 &lt;= Happiness &lt;= 70 :: Automatic Soul generation per second will be reduced proportionally to how unhappy students are (30% happiness will reduce it more than 70%)
+                 
+                 Happiness &lt; 30 :: Total soul count will go down until it reaches 0 or happiness is raised above 30%
+                 
+                 70 &lt; Happiness &lt; 100 :: No effect
+                 
+                 Happiness == 100 :: 30% bonus to over all soul generation per second" style="display:none" class="show_happiness">Student Happiness: <span class="happiness"></span>%</span>
                  <button style="display:none" class="show_CAPS" onClick="hireCAPS(1)">Hire CAPS Personel: <span class="CAPS_cost"></span> Class SPOTS</button>
             </div>
 
