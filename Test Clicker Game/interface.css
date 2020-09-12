@@ -24,6 +24,10 @@ button:active {
     background-color: #d1ad49;
 }
 
+.title{
+    font-size: 18px;
+}
+
 .column {
   float: left;
   width: 33.3%;
